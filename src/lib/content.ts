@@ -164,7 +164,7 @@ export const RESULTS: ResultCard[] = [
   },
   {
     name: "Abraham Temple",
-    meta: "Kent State Tuscarawas — Baseball",
+    meta: "Kent State Tuscarawas — Baseball, Outfield/First Base",
     photo: "/photos/commit-abraham-temple.jpg",
   },
   {
