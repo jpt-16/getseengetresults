@@ -5,12 +5,10 @@ import { useEffect, useState } from "react";
 import { APPLY_URL } from "@/lib/content";
 
 const LINKS = [
+  { href: "#top", label: "Home" },
   { href: "#services", label: "Services" },
-  { href: "#pricing", label: "Pricing" },
-  { href: "#why", label: "Why GSGR" },
   { href: "#results", label: "Results" },
-  { href: "#areas", label: "Areas" },
-  { href: "#faq", label: "FAQ" },
+  { href: "#team", label: "About" },
 ];
 
 export function NavBar() {

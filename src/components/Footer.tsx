@@ -33,14 +33,14 @@ export function Footer() {
             <a href="#services" className="text-cream hover:text-gold">
               Services
             </a>
+            <a href="#results" className="text-cream hover:text-gold">
+              Results
+            </a>
             <a href="#pricing" className="text-cream hover:text-gold">
               Pricing
             </a>
-            <a href="#why" className="text-cream hover:text-gold">
-              Why GSGR
-            </a>
-            <a href="#results" className="text-cream hover:text-gold">
-              Results
+            <a href="#team" className="text-cream hover:text-gold">
+              About
             </a>
             <a href="#areas" className="text-cream hover:text-gold">
               Areas

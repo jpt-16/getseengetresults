@@ -6,24 +6,144 @@ export const INSTAGRAM_HANDLE = "@getseengetresults";
 
 export const CONTACT_EMAIL = "getseengetresults@gmail.com";
 
-export const SERVICES = [
-  {
-    title: "Film Evaluation",
-    body: "Send your game film. You get an honest breakdown of what college coaches will see first — technique, motor, position fit, and the exact clips worth leading with.",
-  },
-  {
-    title: "Exposure & Recruiting",
-    body: "We put your name and your tape in front of college programs, and we walk you and your family through offers, camps, and what to do next.",
-  },
-  {
-    title: "Personal Training",
-    body: "One-on-one and small-group workouts built for your sport and your position. Speed, strength, footwork, hands, and contact prep — on turf, with cones, no gimmicks.",
-  },
-  {
-    title: "Athlete Branding",
-    body: "Highlight edits, reel captions, and a social presence coaches actually take seriously. If they search your name, we make sure they find the right thing.",
-  },
+export const PROOF_POINTS = [
+  "30+ Athletes Trained",
+  "Multiple College Commitments",
+  "Former & Current College Athletes",
+  "Real Recruiting Experience",
 ] as const;
+
+export const PROBLEM_POINTS = [
+  "Getting their film noticed",
+  "Knowing which schools to target",
+  "Reaching the right coaches",
+  "Knowing how to navigate recruiting",
+  "Presenting themselves professionally",
+] as const;
+
+export type ProcessStep = {
+  step: string;
+  title: string;
+  body: string;
+};
+
+export const SYSTEM_STEPS: ProcessStep[] = [
+  {
+    step: "01",
+    title: "Train",
+    body: "Build the athletic ability to compete at the next level.",
+  },
+  {
+    step: "02",
+    title: "Build Your Profile",
+    body: "Improve film, highlights, branding, and your overall recruiting profile.",
+  },
+  {
+    step: "03",
+    title: "Get Seen",
+    body: "Develop an outreach strategy and put your profile in front of the right programs.",
+  },
+  {
+    step: "04",
+    title: "Get Recruited",
+    body: "Navigate communication, opportunities, and the recruiting process with experienced guidance.",
+  },
+];
+
+export const HOW_IT_WORKS_STEPS: ProcessStep[] = [
+  {
+    step: "01",
+    title: "Apply",
+    body: "Tell us about yourself, your sport, position, graduation year, and goals.",
+  },
+  {
+    step: "02",
+    title: "Get Evaluated",
+    body: "We evaluate your athletic profile, film, and recruiting position.",
+  },
+  {
+    step: "03",
+    title: "Build Your Plan",
+    body: "Create a personalized strategy around training, film, exposure, and recruiting.",
+  },
+  {
+    step: "04",
+    title: "Get Seen",
+    body: "Execute the plan and pursue the right college opportunities.",
+  },
+];
+
+export type ServiceItem = {
+  title: string;
+  body: string;
+};
+
+export type ServiceCategory = {
+  label: string;
+  items: ServiceItem[];
+};
+
+export const SERVICE_CATEGORIES: ServiceCategory[] = [
+  {
+    label: "Train",
+    items: [
+      {
+        title: "Personal Training",
+        body: "One-on-one and small-group workouts built for your sport and your position. Speed, strength, footwork, hands, and contact prep — on turf, with cones, no gimmicks.",
+      },
+      {
+        title: "Workout Plans",
+        body: "8 to 16-week strength, speed, and conditioning plans designed by our college athletes — built to show a real jump in explosiveness and power.",
+      },
+      {
+        title: "Positional & Speed Training",
+        body: "Run like an actual D1 workout, one hour, scheduled around your availability — positional work and speed development together.",
+      },
+    ],
+  },
+  {
+    label: "Get Seen",
+    items: [
+      {
+        title: "Film Evaluation",
+        body: "Send your game film. You get an honest breakdown of what college coaches will see first — technique, motor, position fit, and the exact clips worth leading with.",
+      },
+      {
+        title: "Athlete Branding & Highlights",
+        body: "Highlight edits, reel captions, and a social presence coaches actually take seriously. If they search your name, we make sure they find the right thing.",
+      },
+      {
+        title: "Graphics, Resumes & Stats",
+        body: "Shareable graphics and a clean athlete resume built to post straight to X and share with coaches.",
+      },
+    ],
+  },
+  {
+    label: "Get Recruited",
+    items: [
+      {
+        title: "Exposure & Recruiting",
+        body: "We put your name and your tape in front of college programs, and we walk you and your family through offers, camps, and what to do next.",
+      },
+      {
+        title: "Recruiting Management & Coach Outreach",
+        body: "Direct coach outreach strategy across 75+ coach connections, bio rewrite, posting guidance, and weekly check-ins.",
+      },
+    ],
+  },
+];
+
+export const FILM_EVAL_OFFER = {
+  price: "$15",
+  title: "Full Film Evaluation",
+  body: "Send your Hudl or game film. It's reviewed and broken down by our team, led by Caden Chase.",
+  benefits: [
+    "Position-specific breakdown — technique, motor, and fit",
+    "A clear read on your strengths and weaknesses",
+    "The exact clips worth leading with",
+    "An honest read on your level — D1, D2, D3, and beyond",
+  ],
+};
 
 export const FOUNDER = {
   name: "Caden Chase",

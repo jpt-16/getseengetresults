@@ -17,9 +17,17 @@ const workSans = Work_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "GetSeenGetResults | Get Noticed. Get Recruited.",
+  title: "GetSeenGetResults | Get Seen. Get Recruited.",
   description:
-    "Train with former D1 football and wrestling athletes. Real film breakdowns, real workouts, and real exposure to college coaches for youth and high school athletes in Massachusetts, New Hampshire, and North Carolina.",
+    "GetSeenGetResults helps youth and high school athletes turn athletic ability into real college opportunities — training, film evaluation, athlete branding, and college recruiting guidance from former and current college athletes in Massachusetts, New Hampshire, and North Carolina.",
+  keywords: [
+    "college athletic recruiting",
+    "athlete recruiting",
+    "recruiting help for athletes",
+    "college recruiting",
+    "athlete development",
+    "recruiting training",
+  ],
   icons: {
     icon: "/gsgr-logo.png",
   },
