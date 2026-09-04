@@ -7,6 +7,7 @@ import { APPLY_URL } from "@/lib/content";
 const LINKS = [
   { href: "#top", label: "Home" },
   { href: "#services", label: "Services" },
+  { href: "#pricing", label: "Pricing" },
   { href: "#results", label: "Results" },
   { href: "#team", label: "About" },
 ];

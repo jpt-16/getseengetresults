@@ -50,10 +50,32 @@ export const SYSTEM_STEPS: ProcessStep[] = [
   },
 ];
 
+export const HOW_IT_WORKS_STEPS: ProcessStep[] = [
+  {
+    step: "01",
+    title: "Apply",
+    body: "Tell us about yourself, your sport, position, graduation year, and goals.",
+  },
+  {
+    step: "02",
+    title: "Get Evaluated",
+    body: "We evaluate your athletic profile, film, and recruiting position.",
+  },
+  {
+    step: "03",
+    title: "Build Your Plan",
+    body: "Create a personalized strategy around training, film, exposure, and recruiting.",
+  },
+  {
+    step: "04",
+    title: "Get Seen",
+    body: "Execute the plan and pursue the right college opportunities.",
+  },
+];
+
 export type ServiceItem = {
   title: string;
   body: string;
-  price?: string;
 };
 
 export type ServiceCategory = {
@@ -67,18 +89,15 @@ export const SERVICE_CATEGORIES: ServiceCategory[] = [
     items: [
       {
         title: "Personal Training",
-        price: "From $40",
-        body: "One-on-one and small-group workouts built for your sport and position — speed, strength, footwork, hands, and contact prep, on turf in Methuen, MA. $40 drop-in (bring a friend, both get $10 off), or save with a 4- or 8-session package ($120 / $200).",
+        body: "One-on-one and small-group workouts built for your sport and your position. Speed, strength, footwork, hands, and contact prep — on turf, with cones, no gimmicks.",
       },
       {
         title: "Workout Plans",
-        price: "$20–$35",
-        body: "8-week (\"Get Big\") or 16-week (\"Get Bigger\") strength, speed, and conditioning plans designed by our college athletes — built to show a real jump in explosiveness and power.",
+        body: "8 to 16-week strength, speed, and conditioning plans designed by our college athletes — built to show a real jump in explosiveness and power.",
       },
       {
         title: "Positional & Speed Training",
-        price: "$40",
-        body: "Run like an actual D1 workout, one hour, scheduled around your availability — positional work and speed development together. Add a highlight video from the session for $5.",
+        body: "Run like an actual D1 workout, one hour, scheduled around your availability — positional work and speed development together.",
       },
     ],
   },
@@ -86,12 +105,15 @@ export const SERVICE_CATEGORIES: ServiceCategory[] = [
     label: "Get Seen",
     items: [
       {
+        title: "Film Evaluation",
+        body: "Send your game film. You get an honest breakdown of what college coaches will see first — technique, motor, position fit, and the exact clips worth leading with.",
+      },
+      {
         title: "Athlete Branding & Highlights",
         body: "Highlight edits, reel captions, and a social presence coaches actually take seriously. If they search your name, we make sure they find the right thing.",
       },
       {
         title: "Graphics, Resumes & Stats",
-        price: "$7.50",
         body: "Shareable graphics and a clean athlete resume built to post straight to X and share with coaches.",
       },
     ],
@@ -105,10 +127,66 @@ export const SERVICE_CATEGORIES: ServiceCategory[] = [
       },
       {
         title: "Recruiting Management & Coach Outreach",
-        price: "$40/mo",
         body: "Direct coach outreach strategy across 75+ coach connections, bio rewrite, posting guidance, and weekly check-ins.",
       },
     ],
+  },
+];
+
+export type PricingItem = {
+  price: string;
+  title: string;
+  body: string;
+};
+
+export const IN_PERSON_PACKAGES: PricingItem[] = [
+  {
+    price: "$40",
+    title: "Drop-In Session",
+    body: "Mon–Fri 5:00–6:15pm, Sat–Sun 12:30–1:45pm at Methuen HS Lower Turf/Side Field (MA). Pick the day that works for you. Bring a friend and you both get $10 off.",
+  },
+  {
+    price: "$120",
+    title: "Silver Package",
+    body: "4 sessions, one payment — $30/session, a $40 savings vs. booking individually. Same times as Drop-In; pick your own days.",
+  },
+  {
+    price: "$200",
+    title: "Gold Package",
+    body: "8 sessions, one payment — $25/session, a $120 savings vs. booking individually. Same times as Drop-In; pick your own days.",
+  },
+];
+
+export const ONLINE_SERVICES: PricingItem[] = [
+  {
+    price: "$15",
+    title: "Full In-Depth Hudl / Film Eval",
+    body: "Reviewed and broken down by our team, led by Caden Chase. You get an accurate level (D1, D2, D3, etc.) and a clear read on your strengths and weaknesses.",
+  },
+  {
+    price: "$20",
+    title: "The “Get Big” Workout Plan",
+    body: "An elite 8-week plan built to show a dramatic boost in strength, explosiveness, and conditioning — designed by a college athlete.",
+  },
+  {
+    price: "$35",
+    title: "The “Get Bigger” Workout Plan",
+    body: "A 16-week strength and speed program designed by a D1 athlete to build power and explosiveness. Comes with every drill included.",
+  },
+  {
+    price: "$40",
+    title: "1-on-1 Positional & Speed Training",
+    body: "Run like an actual D1 workout, one hour, scheduled around your availability. Add a highlight video from the session to post online for $5.",
+  },
+  {
+    price: "$40/mo",
+    title: "X Account + Recruiting Management",
+    body: "Direct coach outreach strategy across 75+ coach connections, bio rewrite, posting guidance, and weekly check-ins.",
+  },
+  {
+    price: "$7.50",
+    title: "Graphics, Resumes & Stats",
+    body: "Limited-time offer — shareable graphics built to post straight to X.",
   },
 ];
 

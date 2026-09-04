@@ -9,8 +9,11 @@ import {
   PROOF_POINTS,
   PROBLEM_POINTS,
   SYSTEM_STEPS,
+  HOW_IT_WORKS_STEPS,
   SERVICE_CATEGORIES,
   FILM_EVAL_OFFER,
+  IN_PERSON_PACKAGES,
+  ONLINE_SERVICES,
   FOUNDER,
   TEAM,
   REFERRAL,
@@ -19,7 +22,25 @@ import {
   FAQS,
 } from "@/lib/content";
 
+// Savings/value math restated visually from the package descriptions
+// already in content.ts (4 x $40 = $160, 8 x $40 = $320) — nothing new.
+const PACKAGE_DETAILS: Record<
+  string,
+  { perSession: string; regularValue: string; savings: string; recommended?: boolean }
+> = {
+  "Silver Package": { perSession: "$30/session", regularValue: "$160", savings: "$40" },
+  "Gold Package": {
+    perSession: "$25/session",
+    regularValue: "$320",
+    savings: "$120",
+    recommended: true,
+  },
+};
+
 export default function Home() {
+  const individualServices = [IN_PERSON_PACKAGES[0], ...ONLINE_SERVICES];
+  const packages = IN_PERSON_PACKAGES.slice(1);
+
   return (
     <div id="top">
       {/* HERO */}
@@ -107,48 +128,6 @@ export default function Home() {
         </div>
       </div>
 
-      {/* RESULTS */}
-      <div id="results" className="py-[clamp(56px,9vw,104px)]">
-        <div className="mx-auto max-w-6xl px-5">
-          <h2 className="font-display text-[clamp(34px,6vw,46px)] leading-[0.95] tracking-tight text-cream uppercase">
-            Athletes we&rsquo;ve helped
-          </h2>
-          <h3 className="mt-10 text-[13px] font-bold tracking-[0.16em] text-stone uppercase">
-            College commitments
-          </h3>
-        </div>
-        <div className="mt-6">
-          <ResultsCarousel />
-        </div>
-        <div className="mx-auto mt-14 max-w-6xl px-5">
-          <h3 className="text-[13px] font-bold tracking-[0.16em] text-stone uppercase">
-            In their words
-          </h3>
-          <div className="mt-6 grid grid-cols-[repeat(auto-fit,minmax(280px,1fr))] gap-6">
-            {TESTIMONIALS.map((t, i) => (
-              <Reveal
-                key={i}
-                delayMs={i * 70}
-                className="rounded-xl border border-pine-700 bg-pine-800 px-7 pt-[30px] pb-8"
-              >
-                <div className="text-[15px] tracking-[0.08em] text-gold" aria-hidden>
-                  {"★".repeat(t.rating)}
-                </div>
-                <p className="mt-4 text-[15px] leading-relaxed text-cream/85">
-                  {t.quote}
-                </p>
-                <div className="mt-[22px] text-[16px] font-bold text-cream">
-                  {t.name}
-                </div>
-                <div className="mt-1 text-[13px] tracking-[0.1em] text-stone uppercase">
-                  {t.role}
-                </div>
-              </Reveal>
-            ))}
-          </div>
-        </div>
-      </div>
-
       {/* PROBLEM */}
       <div className="px-5 py-[clamp(56px,9vw,104px)]">
         <div className="mx-auto grid max-w-6xl grid-cols-[repeat(auto-fit,minmax(320px,1fr))] gap-[clamp(28px,5vw,56px)]">
@@ -216,11 +195,6 @@ export default function Home() {
           <h2 className="max-w-2xl font-display text-[clamp(34px,6vw,46px)] leading-[0.95] tracking-tight text-cream uppercase">
             Train. Get seen. Get recruited.
           </h2>
-          <p className="mt-5 max-w-[620px] text-[16px] leading-relaxed text-cream/80">
-            All ages, all levels, all positions. In-person training runs on
-            turf in Massachusetts; film evaluation and recruiting support
-            work from anywhere.
-          </p>
           <div className="mt-12 grid grid-cols-[repeat(auto-fit,minmax(280px,1fr))] gap-x-10 gap-y-12">
             {SERVICE_CATEGORIES.map((category, i) => (
               <Reveal key={category.label} delayMs={i * 90}>
@@ -233,16 +207,9 @@ export default function Home() {
                       key={item.title}
                       className="border-t border-pine-700 pt-4"
                     >
-                      <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
-                        <h4 className="font-display text-lg tracking-tight text-cream uppercase">
-                          {item.title}
-                        </h4>
-                        {item.price && (
-                          <span className="font-display text-lg text-gold">
-                            {item.price}
-                          </span>
-                        )}
-                      </div>
+                      <h4 className="font-display text-lg tracking-tight text-cream uppercase">
+                        {item.title}
+                      </h4>
                       <p className="mt-2 text-[15px] leading-relaxed text-cream/78">
                         {item.body}
                       </p>
@@ -252,66 +219,24 @@ export default function Home() {
               </Reveal>
             ))}
           </div>
-
-          {/* FILM EVAL SPOTLIGHT */}
-          <Reveal className="mt-[clamp(40px,6vw,64px)] rounded-xl border border-gold/35 bg-pine-800 px-[clamp(28px,4vw,44px)] py-[clamp(32px,4.5vw,44px)]">
-            <div className="grid grid-cols-[repeat(auto-fit,minmax(260px,1fr))] gap-8">
-              <div>
-                <span className="text-[12px] font-bold tracking-[0.2em] text-gold uppercase">
-                  Start here
-                </span>
-                <h3 className="mt-2.5 font-display text-[clamp(26px,3.5vw,34px)] leading-tight tracking-tight text-cream uppercase">
-                  {FILM_EVAL_OFFER.title}
-                </h3>
-                <p className="mt-3 max-w-[480px] text-[16px] leading-relaxed text-cream/85">
-                  {FILM_EVAL_OFFER.body}
-                </p>
-                <div className="mt-6 flex flex-wrap items-center gap-4">
-                  <span className="font-display text-[34px] leading-none text-gold">
-                    {FILM_EVAL_OFFER.price}
-                  </span>
-                  <a
-                    href={APPLY_URL}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="rounded-lg bg-gold px-6 py-3 font-display text-[16px] tracking-[0.06em] text-ink uppercase transition-[transform,filter] duration-150 ease-out hover:scale-[1.03] hover:brightness-110 active:scale-[0.97]"
-                  >
-                    Apply Now
-                  </a>
-                </div>
-              </div>
-              <ul className="flex flex-col gap-3.5">
-                {FILM_EVAL_OFFER.benefits.map((benefit) => (
-                  <li
-                    key={benefit}
-                    className="flex items-start gap-3 text-[15px] leading-relaxed text-cream/90"
-                  >
-                    <span className="mt-[2px] font-display text-gold" aria-hidden>
-                      ✓
-                    </span>
-                    {benefit}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </Reveal>
+          <a
+            href="#pricing"
+            className="mt-10 inline-flex items-center gap-2 font-display text-lg tracking-[0.04em] text-gold uppercase transition-colors hover:text-gold-light"
+          >
+            See pricing &amp; packages ↓
+          </a>
         </div>
       </div>
 
-      {/* REFERRAL */}
-      <div className="border-y border-pine-700/60 bg-gold px-5 py-8">
-        <div className="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-4">
-          <div>
-            <div className="font-display text-2xl leading-tight tracking-tight text-ink uppercase">
-              {REFERRAL.headline}
-            </div>
-            <p className="mt-1 text-[15px] leading-relaxed text-ink/80">
-              {REFERRAL.body}
-            </p>
-          </div>
-          <span className="flex-none rounded-lg border-2 border-ink px-6 py-3 font-display text-2xl tracking-[0.04em] text-ink uppercase">
-            {REFERRAL.cta}
-          </span>
+      {/* RESULTS */}
+      <div id="results" className="py-[clamp(56px,9vw,104px)]">
+        <div className="mx-auto max-w-6xl px-5">
+          <h2 className="font-display text-[clamp(34px,6vw,46px)] leading-[0.95] tracking-tight text-cream uppercase">
+            Commitments
+          </h2>
+        </div>
+        <div className="mt-9">
+          <ResultsCarousel />
         </div>
       </div>
 
@@ -417,10 +342,7 @@ export default function Home() {
       </div>
 
       {/* FAQ */}
-      <div
-        id="faq"
-        className="border-t border-pine-700/60 bg-pine-900 px-5 py-[clamp(56px,9vw,104px)]"
-      >
+      <div id="faq" className="px-5 py-[clamp(56px,9vw,104px)]">
         <div className="mx-auto max-w-6xl">
           <h2 className="font-display text-[clamp(34px,6vw,46px)] leading-[0.95] tracking-tight text-cream uppercase">
             Recruiting reality check
@@ -451,6 +373,226 @@ export default function Home() {
                 </div>
                 <p className="mt-1.5 text-[16px] leading-relaxed text-cream">
                   {faq.fact}
+                </p>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      {/* PRICING & PACKAGES */}
+      <div
+        id="pricing"
+        className="border-t border-pine-700/60 bg-pine-900 px-5 py-[clamp(56px,9vw,104px)]"
+      >
+        <div className="mx-auto max-w-6xl">
+          <h2 className="font-display text-[clamp(34px,6vw,46px)] leading-[0.95] tracking-tight text-cream uppercase">
+            Pricing &amp; packages
+          </h2>
+          <p className="mt-5 max-w-[620px] text-[clamp(16px,2vw,18px)] leading-relaxed text-cream/85">
+            All ages, all levels, all positions. In-person training runs on
+            turf in Massachusetts; film evaluation and recruiting support
+            work from anywhere. Buy a single service, or save with a
+            package.
+          </p>
+
+          {/* FILM EVAL SPOTLIGHT */}
+          <Reveal className="mt-10 rounded-xl border border-gold/35 bg-pine-800 px-[clamp(28px,4vw,44px)] py-[clamp(32px,4.5vw,44px)]">
+            <div className="grid grid-cols-[repeat(auto-fit,minmax(260px,1fr))] gap-8">
+              <div>
+                <span className="text-[12px] font-bold tracking-[0.2em] text-gold uppercase">
+                  Start here
+                </span>
+                <h3 className="mt-2.5 font-display text-[clamp(26px,3.5vw,34px)] leading-tight tracking-tight text-cream uppercase">
+                  {FILM_EVAL_OFFER.title}
+                </h3>
+                <p className="mt-3 max-w-[480px] text-[16px] leading-relaxed text-cream/85">
+                  {FILM_EVAL_OFFER.body}
+                </p>
+                <div className="mt-6 flex flex-wrap items-center gap-4">
+                  <span className="font-display text-[34px] leading-none text-gold">
+                    {FILM_EVAL_OFFER.price}
+                  </span>
+                  <a
+                    href={APPLY_URL}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="rounded-lg bg-gold px-6 py-3 font-display text-[16px] tracking-[0.06em] text-ink uppercase transition-[transform,filter] duration-150 ease-out hover:scale-[1.03] hover:brightness-110 active:scale-[0.97]"
+                  >
+                    Apply Now
+                  </a>
+                </div>
+              </div>
+              <ul className="flex flex-col gap-3.5">
+                {FILM_EVAL_OFFER.benefits.map((benefit) => (
+                  <li
+                    key={benefit}
+                    className="flex items-start gap-3 text-[15px] leading-relaxed text-cream/90"
+                  >
+                    <span className="mt-[2px] font-display text-gold" aria-hidden>
+                      ✓
+                    </span>
+                    {benefit}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </Reveal>
+
+          {/* INDIVIDUAL SERVICES */}
+          <h3 className="mt-14 text-[13px] font-bold tracking-[0.16em] text-stone uppercase">
+            Individual services — pay per session or per service
+          </h3>
+          <div className="mt-5 grid grid-cols-[repeat(auto-fit,minmax(250px,1fr))] gap-6">
+            {individualServices.map((item, i) => (
+              <Reveal
+                key={item.title}
+                delayMs={i * 40}
+                className="rounded-xl border border-pine-700 bg-pine-800 px-[26px] pt-7 pb-[30px]"
+              >
+                <div className="font-display text-[34px] leading-none text-gold">
+                  {item.price}
+                </div>
+                <h4 className="mt-3.5 mb-2.5 font-display text-xl leading-tight tracking-tight text-cream uppercase">
+                  {item.title}
+                </h4>
+                <p className="text-[15px] leading-relaxed text-cream/82">
+                  {item.body}
+                </p>
+              </Reveal>
+            ))}
+          </div>
+
+          {/* PACKAGES */}
+          <h3 className="mt-14 text-[13px] font-bold tracking-[0.16em] text-stone uppercase">
+            Packages — bundle sessions and save
+          </h3>
+          <div className="mt-5 grid grid-cols-[repeat(auto-fit,minmax(280px,1fr))] gap-6">
+            {packages.map((item, i) => {
+              const details = PACKAGE_DETAILS[item.title];
+              return (
+                <Reveal
+                  key={item.title}
+                  delayMs={i * 60}
+                  className={`relative rounded-xl px-[26px] pt-7 pb-[30px] ${
+                    details?.recommended
+                      ? "border-2 border-gold bg-pine-800"
+                      : "border border-pine-700 bg-pine-800"
+                  }`}
+                >
+                  {details?.recommended && (
+                    <span className="absolute -top-3 left-[26px] rounded-full bg-gold px-3 py-1 font-display text-[12px] tracking-[0.08em] text-ink uppercase">
+                      Recommended — best value
+                    </span>
+                  )}
+                  <div className="flex items-baseline gap-3">
+                    <span className="font-display text-[34px] leading-none text-gold">
+                      {item.price}
+                    </span>
+                    {details && (
+                      <span className="text-[13px] text-stone line-through">
+                        {details.regularValue}
+                      </span>
+                    )}
+                  </div>
+                  <h4 className="mt-3.5 mb-1 font-display text-xl leading-tight tracking-tight text-cream uppercase">
+                    {item.title}
+                  </h4>
+                  {details && (
+                    <div className="mb-3 flex flex-wrap gap-x-3 gap-y-1 text-[13px] font-semibold tracking-[0.04em] text-gold uppercase">
+                      <span>{details.perSession}</span>
+                      <span>· Save {details.savings}</span>
+                    </div>
+                  )}
+                  <p className="text-[15px] leading-relaxed text-cream/82">
+                    {item.body}
+                  </p>
+                  <a
+                    href={APPLY_URL}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="mt-5 inline-block rounded-lg bg-gold px-6 py-3 font-display text-[15px] tracking-[0.06em] text-ink uppercase transition-[transform,filter] duration-150 ease-out hover:scale-[1.03] hover:brightness-110 active:scale-[0.97]"
+                  >
+                    Apply Now
+                  </a>
+                </Reveal>
+              );
+            })}
+          </div>
+        </div>
+      </div>
+
+      {/* REFERRAL */}
+      <div className="border-y border-pine-700/60 bg-gold px-5 py-8">
+        <div className="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-4">
+          <div>
+            <div className="font-display text-2xl leading-tight tracking-tight text-ink uppercase">
+              {REFERRAL.headline}
+            </div>
+            <p className="mt-1 text-[15px] leading-relaxed text-ink/80">
+              {REFERRAL.body}
+            </p>
+          </div>
+          <span className="flex-none rounded-lg border-2 border-ink px-6 py-3 font-display text-2xl tracking-[0.04em] text-ink uppercase">
+            {REFERRAL.cta}
+          </span>
+        </div>
+      </div>
+
+      {/* TESTIMONIALS */}
+      <div className="px-5 py-[clamp(56px,9vw,104px)]">
+        <div className="mx-auto max-w-6xl">
+          <h2 className="font-display text-[clamp(34px,6vw,46px)] leading-[0.95] tracking-tight text-cream uppercase">
+            Athlete testimonials
+          </h2>
+          <div className="mt-11 grid grid-cols-[repeat(auto-fit,minmax(280px,1fr))] gap-6">
+            {TESTIMONIALS.map((t, i) => (
+              <Reveal
+                key={i}
+                delayMs={i * 70}
+                className="rounded-xl border border-pine-700 bg-pine-800 px-7 pt-[30px] pb-8"
+              >
+                <div className="text-[15px] tracking-[0.08em] text-gold" aria-hidden>
+                  {"★".repeat(t.rating)}
+                </div>
+                <p className="mt-4 text-[15px] leading-relaxed text-cream/85">
+                  {t.quote}
+                </p>
+                <div className="mt-[22px] text-[16px] font-bold text-cream">
+                  {t.name}
+                </div>
+                <div className="mt-1 text-[13px] tracking-[0.1em] text-stone uppercase">
+                  {t.role}
+                </div>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      {/* HOW IT WORKS */}
+      <div
+        className="border-t border-pine-700/60 bg-pine-900 px-5 py-[clamp(56px,9vw,104px)]"
+      >
+        <div className="mx-auto max-w-6xl">
+          <h2 className="font-display text-[clamp(34px,6vw,46px)] leading-[0.95] tracking-tight text-cream uppercase">
+            How it works
+          </h2>
+          <div className="mt-11 grid grid-cols-[repeat(auto-fit,minmax(220px,1fr))] gap-x-8 gap-y-9">
+            {HOW_IT_WORKS_STEPS.map((item, i) => (
+              <Reveal
+                key={item.step}
+                delayMs={i * 70}
+                className="border-t border-pine-700 pt-6"
+              >
+                <div className="font-display text-[36px] leading-none text-gold">
+                  {item.step}
+                </div>
+                <h3 className="mt-3 font-display text-xl tracking-tight text-cream uppercase">
+                  {item.title}
+                </h3>
+                <p className="mt-2.5 text-[15px] leading-relaxed text-cream/80">
+                  {item.body}
                 </p>
               </Reveal>
             ))}
