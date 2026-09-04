@@ -57,14 +57,16 @@ export const TEAM: TeamMember[] = [
   {
     name: "Manny Lizardo",
     role: "Bates College",
-    description: "Defensive end at Bates College.",
+    description:
+      "Defensive end at Bates College. All-Conference DL/DE, 2x MVC All-Conference selection, and Eagle Tribune All-Star who captained Central Catholic to a Final Four appearance. Held multiple collegiate offers.",
     photo: "/photos/manny-raiders.jpg",
   },
   {
     name: "Will Volk",
-    role: "Davidson College",
-    description: "Defensive end at Davidson College.",
-    photo: "/photos/knights-de-99.jpg",
+    role: "DL/OL Coach — Davidson College",
+    description:
+      "Current defensive lineman at D1 FCS Davidson College. All-NEPSAC selection who helped lead BB&N to an ISL Championship and held multiple D1 offers — now trains GSGR's DL/OL athletes and manages recruitment consulting.",
+    photo: "/photos/will-volk-davidson.jpg",
   },
   {
     name: "Dylan Brown",
