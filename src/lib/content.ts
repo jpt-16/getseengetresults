@@ -43,14 +43,15 @@ export const TEAM: TeamMember[] = [
   {
     name: "Caden Chase",
     role: "Founder — Davidson College",
-    description: "D1 running back and wrestler at Davidson College.",
+    description:
+      "D1 running back and wrestler at Davidson College. All-State wrestling champion with 200+ career wins, First Team All-Conference, and an Eagle Tribune / Boston Globe / Boston Herald All-Star who held 17 total offers, including multiple D1s.",
     photo: "/photos/hero-night-action.jpg",
   },
   {
     name: "Georgio Cherfane",
     role: "Managing Partner",
     description:
-      "Founding father of GSGR, running content creation and editing. Guard/nose guard — not currently playing at the college level.",
+      "Founding father of GSGR, running content creation and editing. All-Conference interior defensive lineman, 3-year varsity player and 2-year starter, 2-year varsity wrestling starter, and Eagle Tribune All-Star Honorable Mention who held multiple collegiate offers — not currently playing at the college level.",
     photo: "/photos/methuen-lineman.jpg",
   },
   {
@@ -64,6 +65,13 @@ export const TEAM: TeamMember[] = [
     role: "Davidson College",
     description: "Defensive end at Davidson College.",
     photo: "/photos/knights-de-99.jpg",
+  },
+  {
+    name: "Dylan Brown",
+    role: "Bowdoin College",
+    description:
+      "Offensive line signee at Bowdoin College. Two-year varsity starter who held multiple collegiate offers — now helps run GSGR's recruiting consulting.",
+    photo: "/photos/dylan-brown-central.jpg",
   },
 ];
 
