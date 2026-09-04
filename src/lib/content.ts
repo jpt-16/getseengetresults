@@ -27,21 +27,44 @@ export const SERVICES = [
   },
 ] as const;
 
-export type Coach = {
-  name: string;
-  role: string;
-};
-
 export const FOUNDER = {
   name: "Caden Chase",
   title: "D1 RB & Wrestler, Davidson College",
 };
 
-export const COACHES: Coach[] = [
-  { name: "Manny Lizardo", role: "Bates College — Defensive End" },
-  { name: "Dylan Brown", role: "Bowdoin College — Offensive Line" },
-  { name: "Joe Irzyk", role: "Union College — Tight End" },
-  { name: "Georgio Cherfane", role: "All-Conference — Defensive Line" },
+export type TeamMember = {
+  name: string;
+  role: string;
+  description: string;
+  photo: string;
+};
+
+export const TEAM: TeamMember[] = [
+  {
+    name: "Caden Chase",
+    role: "Founder — Davidson College",
+    description: "D1 running back and wrestler at Davidson College.",
+    photo: "/photos/hero-night-action.jpg",
+  },
+  {
+    name: "Georgio Cherfane",
+    role: "Managing Partner",
+    description:
+      "Founding father of GSGR, running content creation and editing. Guard/nose guard — not currently playing at the college level.",
+    photo: "/photos/methuen-lineman.jpg",
+  },
+  {
+    name: "Manny Lizardo",
+    role: "Bates College",
+    description: "Defensive end at Bates College.",
+    photo: "/photos/drill-training-catch.jpg",
+  },
+  {
+    name: "Will Volk",
+    role: "Davidson College",
+    description: "Defensive end at Davidson College.",
+    photo: "/photos/knights-de-99.jpg",
+  },
 ];
 
 export type PricingItem = {

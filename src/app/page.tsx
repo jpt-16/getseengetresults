@@ -7,7 +7,7 @@ import {
   INSTAGRAM_HANDLE,
   SERVICES,
   FOUNDER,
-  COACHES,
+  TEAM,
   IN_PERSON_PACKAGES,
   ONLINE_SERVICES,
   REFERRAL,
@@ -264,30 +264,38 @@ export default function Home() {
         </div>
       </div>
 
-      {/* COACHING STAFF */}
-      <div className="px-5 py-[clamp(56px,9vw,104px)]">
+      {/* TEAM */}
+      <div id="team" className="px-5 py-[clamp(56px,9vw,104px)]">
         <div className="mx-auto max-w-6xl">
           <h2 className="font-display text-[clamp(34px,6vw,46px)] leading-[0.95] tracking-tight text-cream uppercase">
-            Coaching staff
+            The team
           </h2>
-          <div className="mt-10 border-t border-pine-700">
-            <div className="flex flex-wrap items-baseline justify-between gap-x-6 gap-y-1 border-b border-pine-700 py-5">
-              <div className="font-display text-xl tracking-tight text-cream uppercase">
-                {FOUNDER.name}
-              </div>
-              <div className="text-[15px] text-cream/75">
-                Founder — {FOUNDER.title}
-              </div>
-            </div>
-            {COACHES.map((coach) => (
+          <div className="mt-10 grid grid-cols-[repeat(auto-fit,minmax(220px,1fr))] gap-6">
+            {TEAM.map((member) => (
               <div
-                key={coach.name}
-                className="flex flex-wrap items-baseline justify-between gap-x-6 gap-y-1 border-b border-pine-700 py-5"
+                key={member.name}
+                className="overflow-hidden rounded-xl border border-pine-700 bg-pine-800"
               >
-                <div className="font-display text-xl tracking-tight text-cream uppercase">
-                  {coach.name}
+                <div className="relative aspect-[4/5]">
+                  <Image
+                    src={member.photo}
+                    alt={member.name}
+                    fill
+                    sizes="(min-width: 1024px) 25vw, 50vw"
+                    className="object-cover"
+                  />
                 </div>
-                <div className="text-[15px] text-cream/75">{coach.role}</div>
+                <div className="px-5 pt-4 pb-5">
+                  <div className="font-display text-xl tracking-tight text-cream uppercase">
+                    {member.name}
+                  </div>
+                  <div className="mt-1 text-[13px] font-semibold tracking-[0.1em] text-gold uppercase">
+                    {member.role}
+                  </div>
+                  <p className="mt-2.5 text-[14px] leading-relaxed text-cream/80">
+                    {member.description}
+                  </p>
+                </div>
               </div>
             ))}
           </div>
