@@ -148,7 +148,6 @@ export type ResultCard = {
   name: string;
   meta: string;
   quote?: string;
-  placeholder?: boolean;
   photo?: string;
 };
 
@@ -164,16 +163,43 @@ export const RESULTS: ResultCard[] = [
     quote: "Every session had a purpose. Film showed it.",
   },
   {
-    name: "Athlete Name",
-    meta: "School / Position",
-    placeholder: true,
-    photo: "/photos/knights-de-99.jpg",
+    name: "Ali Kalle",
+    meta: "Worcester State — RB",
   },
   {
-    name: "Athlete Name",
-    meta: "School / Position",
-    placeholder: true,
-    photo: "/photos/methuen-lineman.jpg",
+    name: "Drew O'Keefe",
+    meta: "Williams College — WR/K",
+  },
+  {
+    name: "Abraham Temple",
+    meta: "Kent State — Baseball",
+    quote:
+      "I have trusted Caden with my recruitment, and it has paid off. I have been on many visits and phone calls. I don't have to worry about anything on the recruitment side of things.",
+  },
+  {
+    name: "Caden Chase",
+    meta: "Davidson College — RB",
+    photo: "/photos/hero-night-action.jpg",
+  },
+  {
+    name: "Manny Lizardo",
+    meta: "Bates College — DE",
+    photo: "/photos/manny-raiders.jpg",
+  },
+  {
+    name: "Will Volk",
+    meta: "Davidson College — DL",
+    photo: "/photos/will-volk-davidson.jpg",
+  },
+  {
+    name: "Dylan Brown",
+    meta: "Bowdoin College — OL",
+    photo: "/photos/dylan-brown-central.jpg",
+  },
+  {
+    name: "Joe Irzyk",
+    meta: "Union College — TE",
+    photo: "/photos/joe-irzyk-stjohns.jpg",
   },
 ];
 

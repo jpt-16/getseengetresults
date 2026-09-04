@@ -311,7 +311,7 @@ export default function Home() {
       <div id="results" className="py-[clamp(56px,9vw,104px)]">
         <div className="mx-auto max-w-6xl px-5">
           <h2 className="font-display text-[clamp(34px,6vw,46px)] leading-[0.95] tracking-tight text-cream uppercase">
-            Guys who got seen
+            Commitments
           </h2>
         </div>
         <div className="mt-9">
