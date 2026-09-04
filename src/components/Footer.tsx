@@ -1,5 +1,4 @@
 import Image from "next/image";
-import Link from "next/link";
 import {
   APPLY_URL,
   INSTAGRAM_URL,
@@ -32,18 +31,21 @@ export function Footer() {
             Site
           </div>
           <div className="mt-4 flex flex-col gap-2.5 text-[16px]">
-            <Link href="/pricing" className="text-cream hover:text-gold">
+            <a href="#services" className="text-cream hover:text-gold">
+              Services
+            </a>
+            <a href="#pricing" className="text-cream hover:text-gold">
               Pricing
-            </Link>
-            <Link href="/about" className="text-cream hover:text-gold">
+            </a>
+            <a href="#why" className="text-cream hover:text-gold">
               Why GSGR
-            </Link>
-            <Link href="/results" className="text-cream hover:text-gold">
+            </a>
+            <a href="#results" className="text-cream hover:text-gold">
               Results
-            </Link>
-            <Link href="/contact" className="text-cream hover:text-gold">
-              Contact
-            </Link>
+            </a>
+            <a href="#areas" className="text-cream hover:text-gold">
+              Areas
+            </a>
           </div>
         </div>
         <div>

@@ -17,10 +17,7 @@ const workSans = Work_Sans({
 });
 
 export const metadata: Metadata = {
-  title: {
-    default: "GetSeenGetResults | Get Noticed. Get Recruited.",
-    template: "%s | GetSeenGetResults",
-  },
+  title: "GetSeenGetResults | Get Noticed. Get Recruited.",
   description:
     "Train with former D1 football and wrestling athletes. Real film breakdowns, real workouts, and real exposure to college coaches for youth and high school athletes in Massachusetts, New Hampshire, and North Carolina.",
   icons: {

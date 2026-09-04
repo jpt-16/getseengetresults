@@ -1,22 +1,19 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
-import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { APPLY_URL } from "@/lib/content";
 
 const LINKS = [
-  { href: "/", label: "Home" },
-  { href: "/pricing", label: "Pricing" },
-  { href: "/about", label: "Why GSGR" },
-  { href: "/results", label: "Results" },
-  { href: "/contact", label: "Contact" },
+  { href: "#services", label: "Services" },
+  { href: "#pricing", label: "Pricing" },
+  { href: "#why", label: "Why GSGR" },
+  { href: "#results", label: "Results" },
+  { href: "#areas", label: "Areas" },
 ];
 
 export function NavBar() {
   const [scrolled, setScrolled] = useState(false);
-  const pathname = usePathname();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40);
@@ -35,7 +32,7 @@ export function NavBar() {
       }}
     >
       <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-5 py-3.5">
-        <Link href="/" className="flex items-center gap-2.5 text-cream">
+        <a href="#top" className="flex items-center gap-2.5 text-cream">
           <Image
             src="/gsgr-logo.png"
             alt="GetSeenGetResults"
@@ -47,29 +44,24 @@ export function NavBar() {
           <span className="font-display text-[22px] leading-none tracking-wide">
             GSGR
           </span>
-        </Link>
+        </a>
         <div className="flex items-center gap-7">
           <div className="hidden items-center gap-6 text-[13px] font-semibold tracking-[0.14em] uppercase md:flex">
-            {LINKS.map((link) => {
-              const active = pathname === link.href;
-              return (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  className={`transition-colors hover:text-gold ${
-                    active ? "text-gold" : "text-cream"
-                  }`}
-                >
-                  {link.label}
-                </Link>
-              );
-            })}
+            {LINKS.map((link) => (
+              <a
+                key={link.href}
+                href={link.href}
+                className="text-cream transition-colors hover:text-gold"
+              >
+                {link.label}
+              </a>
+            ))}
           </div>
           <a
             href={APPLY_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="font-display text-[15px] tracking-[0.06em] uppercase whitespace-nowrap rounded-lg bg-gold px-5 py-2.5 text-ink transition-transform hover:scale-[1.03] hover:brightness-110"
+            className="font-display text-[15px] tracking-[0.06em] uppercase whitespace-nowrap rounded-lg bg-gold px-5 py-2.5 text-ink transition-[transform,filter] duration-150 ease-out hover:scale-[1.03] hover:brightness-110 active:scale-[0.97]"
           >
             Apply Now
           </a>
