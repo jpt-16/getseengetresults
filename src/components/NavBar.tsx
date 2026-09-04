@@ -6,6 +6,7 @@ import { APPLY_URL } from "@/lib/content";
 
 const LINKS = [
   { href: "#services", label: "Services" },
+  { href: "#pricing", label: "Pricing" },
   { href: "#why", label: "Why GSGR" },
   { href: "#results", label: "Results" },
   { href: "#areas", label: "Areas" },

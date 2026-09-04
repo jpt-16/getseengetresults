@@ -7,8 +7,16 @@ import {
   APPLY_URL,
   INSTAGRAM_URL,
   INSTAGRAM_HANDLE,
+  CONTACT_EMAIL,
+  CONTACT_PHONE,
+  CONTACT_PHONE_HREF,
   SERVICES,
+  FOUNDER,
+  COACHES,
   WHY_STATS,
+  IN_PERSON_PACKAGES,
+  ONLINE_SERVICES,
+  REFERRAL,
   TESTIMONIALS,
   SERVICE_AREAS,
 } from "@/lib/content";
@@ -117,6 +125,85 @@ export default function Home() {
         </div>
       </div>
 
+      {/* PRICING */}
+      <div id="pricing" className="border-t border-pine-700/60 bg-pine-900 px-5 py-[clamp(48px,8vw,96px)]">
+        <div className="mx-auto max-w-6xl">
+          <Reveal>
+            <span className="text-[12px] font-bold tracking-[0.22em] text-gold uppercase">
+              Pricing
+            </span>
+            <h2 className="mt-3 font-display text-[clamp(34px,6vw,46px)] leading-none tracking-tight text-cream uppercase">
+              Every way to work with us
+            </h2>
+          </Reveal>
+
+          <Reveal className="mt-11">
+            <h3 className="text-[13px] font-bold tracking-[0.16em] text-stone uppercase">
+              In-person training — all ages, levels, positions
+            </h3>
+            <div className="mt-5 grid grid-cols-[repeat(auto-fit,minmax(250px,1fr))] gap-6">
+              {IN_PERSON_PACKAGES.map((item) => (
+                <div
+                  key={item.title}
+                  className="rounded-xl border border-pine-700 bg-pine-800 px-[26px] pt-7 pb-[30px]"
+                >
+                  <div className="font-display text-[34px] leading-none text-gold">
+                    {item.price}
+                  </div>
+                  <h4 className="mt-3.5 mb-2.5 font-display text-xl leading-tight tracking-tight text-cream uppercase">
+                    {item.title}
+                  </h4>
+                  <p className="text-[15px] leading-relaxed text-cream/82">
+                    {item.body}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </Reveal>
+
+          <Reveal className="mt-12">
+            <h3 className="text-[13px] font-bold tracking-[0.16em] text-stone uppercase">
+              Online & recruiting services
+            </h3>
+            <div className="mt-5 grid grid-cols-[repeat(auto-fit,minmax(250px,1fr))] gap-6">
+              {ONLINE_SERVICES.map((item) => (
+                <div
+                  key={item.title}
+                  className="rounded-xl border border-pine-700 bg-pine-800 px-[26px] pt-7 pb-[30px]"
+                >
+                  <div className="font-display text-[34px] leading-none text-gold">
+                    {item.price}
+                  </div>
+                  <h4 className="mt-3.5 mb-2.5 font-display text-xl leading-tight tracking-tight text-cream uppercase">
+                    {item.title}
+                  </h4>
+                  <p className="text-[15px] leading-relaxed text-cream/82">
+                    {item.body}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </Reveal>
+        </div>
+      </div>
+
+      {/* REFERRAL */}
+      <Reveal className="border-y border-pine-700/60 bg-gold px-5 py-8">
+        <div className="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-4">
+          <div>
+            <div className="font-display text-2xl leading-tight tracking-tight text-ink uppercase">
+              {REFERRAL.headline}
+            </div>
+            <p className="mt-1 text-[15px] leading-relaxed text-ink/80">
+              {REFERRAL.body}
+            </p>
+          </div>
+          <span className="flex-none rounded-lg border-2 border-ink px-6 py-3 font-display text-2xl tracking-[0.04em] text-ink uppercase">
+            {REFERRAL.cta}
+          </span>
+        </div>
+      </Reveal>
+
       {/* WHY */}
       <div
         id="why"
@@ -135,10 +222,10 @@ export default function Home() {
               Coached by athletes who lived it
             </h2>
             <p className="mt-[22px] text-[clamp(16px,2vw,18px)] leading-relaxed text-cream/90">
-              GSGR is run by multiple Division I football and wrestling
-              athletes. We have been through the recruiting process — the
-              film, the camps, the calls, the silence — and we coach the way
-              we wish someone had coached us.
+              GSGR is led by {FOUNDER.name}, {FOUNDER.title}. We focus on
+              real development — growing as an athlete and a
+              man, not just workouts — and we coach the way we wish someone
+              had coached us through recruiting.
             </p>
             <p className="mt-4 text-[clamp(16px,2vw,18px)] leading-relaxed text-cream/90">
               Every athlete gets hands-on, individualized work. No packed
@@ -157,6 +244,23 @@ export default function Home() {
                   </div>
                 </div>
               ))}
+            </div>
+            <div className="mt-[34px]">
+              <div className="text-[12px] font-bold tracking-[0.2em] text-stone uppercase">
+                Coaching staff
+              </div>
+              <div className="mt-3 grid grid-cols-[repeat(auto-fit,minmax(200px,1fr))] gap-x-6 gap-y-2.5">
+                {COACHES.map((coach) => (
+                  <div key={coach.name} className="text-[15px] leading-snug text-cream/90">
+                    <span className="font-semibold text-cream">{coach.name}</span>
+                    {" — "}
+                    {coach.role}
+                  </div>
+                ))}
+              </div>
+              <p className="mt-2.5 text-[13px] text-stone">
+                Plus many more special guests from the college level.
+              </p>
             </div>
           </Reveal>
           <Reveal
@@ -216,22 +320,22 @@ export default function Home() {
         <div className="mx-auto max-w-6xl">
           <Reveal>
             <span className="text-[12px] font-bold tracking-[0.22em] text-gold uppercase">
-              What families say
+              What athletes say
             </span>
             <h2 className="mt-3 font-display text-[clamp(34px,6vw,46px)] leading-none tracking-tight text-cream uppercase">
-              Parents &amp; athletes
+              Athlete testimonials
             </h2>
           </Reveal>
           <div className="mt-11 grid grid-cols-[repeat(auto-fit,minmax(280px,1fr))] gap-6">
             {TESTIMONIALS.map((t, i) => (
               <Reveal
                 key={i}
-                className="rounded-xl border border-dashed border-stone/50 bg-pine-800 px-7 pt-[30px] pb-8"
+                className="rounded-xl border border-pine-700 bg-pine-800 px-7 pt-[30px] pb-8"
               >
-                <div className="font-display text-[52px] leading-[0.6] text-gold">
-                  &ldquo;
+                <div className="text-[15px] tracking-[0.08em] text-gold" aria-hidden>
+                  {"★".repeat(t.rating)}
                 </div>
-                <p className="mt-[18px] font-mono text-[14px] leading-relaxed text-stone">
+                <p className="mt-4 text-[15px] leading-relaxed text-cream/85">
                   {t.quote}
                 </p>
                 <div className="mt-[22px] text-[16px] font-bold text-cream">
@@ -364,10 +468,19 @@ export default function Home() {
             <div className="text-[12px] font-bold tracking-[0.2em] text-stone uppercase">
               Contact
             </div>
-            <div className="mt-4 font-mono text-[14px] leading-relaxed text-stone">
-              [ add contact email ]
-              <br />
-              [ add phone ]
+            <div className="mt-4 flex flex-col gap-2.5 text-[16px]">
+              <a
+                href={`mailto:${CONTACT_EMAIL}`}
+                className="text-cream hover:text-gold"
+              >
+                {CONTACT_EMAIL}
+              </a>
+              <a
+                href={`tel:${CONTACT_PHONE_HREF}`}
+                className="text-cream hover:text-gold"
+              >
+                {CONTACT_PHONE}
+              </a>
             </div>
           </div>
           <div>
