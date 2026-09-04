@@ -165,8 +165,6 @@ export const RESULTS: ResultCard[] = [
   {
     name: "Abraham Temple",
     meta: "Kent State Tuscarawas — Baseball",
-    quote:
-      "I have trusted Caden with my recruitment, and it has paid off. I have been on many visits and phone calls. I don't have to worry about anything on the recruitment side of things.",
     photo: "/photos/commit-abraham-temple.jpg",
   },
   {
