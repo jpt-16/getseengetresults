@@ -58,7 +58,7 @@ export const TEAM: TeamMember[] = [
     name: "Manny Lizardo",
     role: "Bates College",
     description: "Defensive end at Bates College.",
-    photo: "/photos/drill-training-catch.jpg",
+    photo: "/photos/manny-raiders.jpg",
   },
   {
     name: "Will Volk",
