@@ -154,7 +154,7 @@ export const TESTIMONIALS: Testimonial[] = [
   },
   {
     quote:
-      "When I first started messaging college coaches using my own knowledge, I never got any responses. At the start of the winter, I struggled building relationships with any coaches. Fast forward to now, I have visited from all levels, and have learned so much from Caden.",
+      "When I first started messaging college coaches using my own knowledge, I never got any responses. At the start of the winter, I struggled building relationships with any coaches. Fast forward to now, I have visited schools from all levels, and have learned so much from Caden.",
     name: "Jacob Hays",
     role: "Athlete",
     rating: 5,
