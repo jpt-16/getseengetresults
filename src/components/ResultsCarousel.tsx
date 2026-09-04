@@ -48,10 +48,10 @@ export function ResultsCarousel() {
             style={{ scrollSnapAlign: "center" }}
           >
             {result.photo ? (
-              <div className="relative aspect-[16/10] overflow-hidden">
+              <div className="relative aspect-[4/5] overflow-hidden">
                 <Image
                   src={result.photo}
-                  alt={`Action shot — ${result.meta}`}
+                  alt={`${result.name} commitment announcement — ${result.meta}`}
                   fill
                   sizes="340px"
                   className="object-cover"
@@ -60,7 +60,7 @@ export function ResultsCarousel() {
             ) : (
               <PhotoPlaceholder
                 label={`${result.name} — game or training clip still`}
-                className="aspect-[16/10]"
+                className="aspect-[4/5]"
               />
             )}
             <div className="px-6 pt-5 pb-6">

@@ -153,53 +153,46 @@ export type ResultCard = {
 
 export const RESULTS: ResultCard[] = [
   {
-    name: "Rob Feudo",
-    meta: "St. John's Prep",
-    quote: "Put in the work, got the tape, got the looks.",
-  },
-  {
-    name: "Jimmy McGonigle",
-    meta: "Lowell Catholic",
-    quote: "Every session had a purpose. Film showed it.",
-  },
-  {
     name: "Ali Kalle",
     meta: "Worcester State — RB",
+    photo: "/photos/commit-ali-kalle.jpg",
   },
   {
     name: "Drew O'Keefe",
     meta: "Williams College — WR/K",
+    photo: "/photos/commit-drew-okeefe.jpg",
   },
   {
     name: "Abraham Temple",
-    meta: "Kent State — Baseball",
+    meta: "Kent State Tuscarawas — Baseball",
     quote:
       "I have trusted Caden with my recruitment, and it has paid off. I have been on many visits and phone calls. I don't have to worry about anything on the recruitment side of things.",
+    photo: "/photos/commit-abraham-temple.jpg",
   },
   {
     name: "Caden Chase",
     meta: "Davidson College — RB",
-    photo: "/photos/hero-night-action.jpg",
+    photo: "/photos/commit-caden-chase.jpg",
   },
   {
     name: "Manny Lizardo",
     meta: "Bates College — DE",
-    photo: "/photos/manny-raiders.jpg",
+    photo: "/photos/commit-manny-lizardo.jpg",
   },
   {
     name: "Will Volk",
     meta: "Davidson College — DL",
-    photo: "/photos/will-volk-davidson.jpg",
+    photo: "/photos/commit-will-volk.jpg",
   },
   {
     name: "Dylan Brown",
     meta: "Bowdoin College — OL",
-    photo: "/photos/dylan-brown-central.jpg",
+    photo: "/photos/commit-dylan-brown.jpg",
   },
   {
     name: "Joe Irzyk",
     meta: "Union College — TE",
-    photo: "/photos/joe-irzyk-stjohns.jpg",
+    photo: "/photos/commit-joe-irzyk.jpg",
   },
 ];
 
