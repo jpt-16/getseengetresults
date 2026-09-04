@@ -10,22 +10,18 @@ export const CONTACT_PHONE_HREF = "+19783877699";
 
 export const SERVICES = [
   {
-    number: "01",
     title: "Film Evaluation",
     body: "Send your game film. You get an honest breakdown of what college coaches will see first — technique, motor, position fit, and the exact clips worth leading with.",
   },
   {
-    number: "02",
     title: "Exposure & Recruiting",
     body: "We put your name and your tape in front of college programs, and we walk you and your family through offers, camps, and what to do next.",
   },
   {
-    number: "03",
     title: "Personal Training",
     body: "One-on-one and small-group workouts built for your sport and your position. Speed, strength, footwork, hands, and contact prep — on turf, with cones, no gimmicks.",
   },
   {
-    number: "04",
     title: "Athlete Branding",
     body: "Highlight edits, reel captions, and a social presence coaches actually take seriously. If they search your name, we make sure they find the right thing.",
   },
@@ -47,12 +43,6 @@ export const COACHES: Coach[] = [
   { name: "Joe Irzyk", role: "Union College — Tight End" },
   { name: "Georgio Cherfane", role: "All-Conference — Defensive Line" },
 ];
-
-export const WHY_STATS = [
-  { value: "30+", label: "Athletes trained" },
-  { value: "Youth through High School", label: "Who we train" },
-  { value: "MA · NH · NC", label: "Where we work" },
-] as const;
 
 export type PricingItem = {
   price: string;

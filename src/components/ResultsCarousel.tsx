@@ -17,33 +17,23 @@ export function ResultsCarousel() {
 
   return (
     <>
-      <div className="mx-auto flex max-w-6xl flex-wrap items-end justify-between gap-5 px-5">
-        <div>
-          <span className="text-[12px] font-bold tracking-[0.22em] text-gold uppercase">
-            Athlete results
-          </span>
-          <h2 className="mt-3 font-display text-[clamp(34px,6vw,46px)] leading-none tracking-tight text-cream uppercase">
-            Guys who got seen
-          </h2>
-        </div>
-        <div className="flex gap-2.5">
-          <button
-            type="button"
-            onClick={() => scrollBy(-1)}
-            aria-label="Previous"
-            className="h-[46px] w-[46px] rounded-lg border border-cream/28 text-lg text-cream transition-colors hover:border-gold hover:text-gold"
-          >
-            ←
-          </button>
-          <button
-            type="button"
-            onClick={() => scrollBy(1)}
-            aria-label="Next"
-            className="h-[46px] w-[46px] rounded-lg border border-cream/28 text-lg text-cream transition-colors hover:border-gold hover:text-gold"
-          >
-            →
-          </button>
-        </div>
+      <div className="mx-auto flex max-w-6xl justify-end gap-2.5 px-5">
+        <button
+          type="button"
+          onClick={() => scrollBy(-1)}
+          aria-label="Previous"
+          className="h-[46px] w-[46px] rounded-lg border border-cream/28 text-lg text-cream transition-[color,border-color,transform] duration-150 ease-out hover:border-gold hover:text-gold active:scale-[0.95]"
+        >
+          ←
+        </button>
+        <button
+          type="button"
+          onClick={() => scrollBy(1)}
+          aria-label="Next"
+          className="h-[46px] w-[46px] rounded-lg border border-cream/28 text-lg text-cream transition-[color,border-color,transform] duration-150 ease-out hover:border-gold hover:text-gold active:scale-[0.95]"
+        >
+          →
+        </button>
       </div>
       <div
         ref={scrollerRef}

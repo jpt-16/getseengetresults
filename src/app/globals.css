@@ -22,10 +22,7 @@
   --color-stone: var(--color-stone);
   --font-display: var(--font-anton);
   --font-sans: var(--font-work-sans);
-}
-
-html {
-  scroll-behavior: smooth;
+  --ease-out-strong: cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 body {
@@ -34,6 +31,25 @@ body {
 }
 
 ::selection {
+  background: var(--color-gold);
+  color: var(--color-ink);
+}
+
+h1,
+h2,
+h3,
+h4 {
+  text-wrap: balance;
+}
+
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--color-gold);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+::-moz-selection {
   background: var(--color-gold);
   color: var(--color-ink);
 }
@@ -67,9 +83,6 @@ body {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  html {
-    scroll-behavior: auto;
-  }
   .gsgr-beam {
     animation: none;
   }
