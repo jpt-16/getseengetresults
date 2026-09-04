@@ -4,9 +4,7 @@ export const APPLY_URL =
 export const INSTAGRAM_URL = "https://www.instagram.com/getseengetresults/";
 export const INSTAGRAM_HANDLE = "@getseengetresults";
 
-export const CONTACT_EMAIL = "getseengetresults101@gmail.com";
-export const CONTACT_PHONE = "978-387-7699";
-export const CONTACT_PHONE_HREF = "+19783877699";
+export const CONTACT_EMAIL = "getseengetresults@gmail.com";
 
 export const SERVICES = [
   {
@@ -74,6 +72,12 @@ export const TEAM: TeamMember[] = [
     description:
       "Offensive line signee at Bowdoin College. Two-year varsity starter who held multiple collegiate offers — now helps run GSGR's recruiting consulting.",
     photo: "/photos/dylan-brown-central.jpg",
+  },
+  {
+    name: "Joe Irzyk",
+    role: "Union College",
+    description: "Tight end at Union College.",
+    photo: "/photos/joe-irzyk-stjohns.jpg",
   },
 ];
 
@@ -209,3 +213,27 @@ export const SERVICE_AREAS = [
   { abbr: "NH", name: "New Hampshire" },
   { abbr: "NC", name: "North Carolina" },
 ] as const;
+
+export type Faq = {
+  myth: string;
+  fact: string;
+};
+
+export const FAQS: Faq[] = [
+  {
+    myth: "You have to be a 4 or 5 star recruit to play college football.",
+    fact: "There are over 700 college football programs across all divisions looking for players.",
+  },
+  {
+    myth: "If you don't get recruited early, it's too late.",
+    fact: "Recruiting happens later than most people think. Many athletes get their first real interest during their JR or SR year.",
+  },
+  {
+    myth: "Posting highlights is enough to get recruited.",
+    fact: "Film alone rarely gets athletes recruited. You also need measurables, academic info, and direct communication with coaches.",
+  },
+  {
+    myth: "You have to go D1 to have a successful career.",
+    fact: "There are amazing opportunities at D2, D3, NAIA, and JUCO programs.",
+  },
+];

@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { Reveal } from "@/components/Reveal";
 import { ResultsCarousel } from "@/components/ResultsCarousel";
+import { InstagramIcon } from "@/components/InstagramIcon";
 import {
   APPLY_URL,
   INSTAGRAM_URL,
@@ -13,6 +14,7 @@ import {
   REFERRAL,
   TESTIMONIALS,
   SERVICE_AREAS,
+  FAQS,
 } from "@/lib/content";
 
 export default function Home() {
@@ -333,8 +335,10 @@ export default function Home() {
             href={INSTAGRAM_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex-none rounded-lg bg-gold px-9 py-[19px] font-display text-[clamp(19px,2.6vw,24px)] tracking-[0.05em] text-ink uppercase transition-[transform,filter] duration-150 ease-out hover:scale-[1.03] hover:brightness-110 active:scale-[0.97]"
+            aria-label={`Instagram ${INSTAGRAM_HANDLE}`}
+            className="flex flex-none items-center gap-3 rounded-lg bg-gold px-9 py-[19px] font-display text-[clamp(19px,2.6vw,24px)] tracking-[0.05em] text-ink uppercase transition-[transform,filter] duration-150 ease-out hover:scale-[1.03] hover:brightness-110 active:scale-[0.97]"
           >
+            <InstagramIcon className="h-6 w-6 flex-none" />
             {INSTAGRAM_HANDLE}
           </a>
         </div>
@@ -403,6 +407,45 @@ export default function Home() {
             and recruiting support work from anywhere — send tape and we go
             to work.
           </p>
+        </div>
+      </div>
+
+      {/* FAQ */}
+      <div id="faq" className="px-5 py-[clamp(56px,9vw,104px)]">
+        <div className="mx-auto max-w-6xl">
+          <h2 className="font-display text-[clamp(34px,6vw,46px)] leading-[0.95] tracking-tight text-cream uppercase">
+            Recruiting reality check
+          </h2>
+          <p className="mt-5 max-w-[620px] text-[16px] leading-relaxed text-cream/80">
+            Myths vs. facts — the stuff that stops athletes before they even
+            start.
+          </p>
+          <div className="mt-10 grid grid-cols-[repeat(auto-fit,minmax(280px,1fr))] gap-6">
+            {FAQS.map((faq, i) => (
+              <Reveal
+                key={i}
+                delayMs={i * 70}
+                className="rounded-xl border border-pine-700 bg-pine-800 px-7 pt-[26px] pb-7"
+              >
+                <div className="flex items-start gap-2.5">
+                  <span className="font-display text-[13px] tracking-[0.12em] text-stone uppercase">
+                    Myth
+                  </span>
+                </div>
+                <p className="mt-1.5 text-[17px] leading-snug text-cream/70 italic">
+                  &ldquo;{faq.myth}&rdquo;
+                </p>
+                <div className="mt-4 flex items-start gap-2.5">
+                  <span className="font-display text-[13px] tracking-[0.12em] text-gold uppercase">
+                    Fact
+                  </span>
+                </div>
+                <p className="mt-1.5 text-[16px] leading-relaxed text-cream">
+                  {faq.fact}
+                </p>
+              </Reveal>
+            ))}
+          </div>
         </div>
       </div>
 

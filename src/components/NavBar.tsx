@@ -10,6 +10,7 @@ const LINKS = [
   { href: "#why", label: "Why GSGR" },
   { href: "#results", label: "Results" },
   { href: "#areas", label: "Areas" },
+  { href: "#faq", label: "FAQ" },
 ];
 
 export function NavBar() {

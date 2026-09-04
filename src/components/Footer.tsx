@@ -1,11 +1,10 @@
 import Image from "next/image";
+import { InstagramIcon } from "@/components/InstagramIcon";
 import {
   APPLY_URL,
   INSTAGRAM_URL,
   INSTAGRAM_HANDLE,
   CONTACT_EMAIL,
-  CONTACT_PHONE,
-  CONTACT_PHONE_HREF,
 } from "@/lib/content";
 
 export function Footer() {
@@ -46,6 +45,9 @@ export function Footer() {
             <a href="#areas" className="text-cream hover:text-gold">
               Areas
             </a>
+            <a href="#faq" className="text-cream hover:text-gold">
+              FAQ
+            </a>
           </div>
         </div>
         <div>
@@ -65,8 +67,10 @@ export function Footer() {
               href={INSTAGRAM_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-gold hover:text-gold-light"
+              aria-label={`Instagram ${INSTAGRAM_HANDLE}`}
+              className="flex items-center gap-2 text-gold hover:text-gold-light"
             >
+              <InstagramIcon className="h-5 w-5 flex-none" />
               Instagram {INSTAGRAM_HANDLE}
             </a>
           </div>
@@ -81,12 +85,6 @@ export function Footer() {
               className="text-cream hover:text-gold"
             >
               {CONTACT_EMAIL}
-            </a>
-            <a
-              href={`tel:${CONTACT_PHONE_HREF}`}
-              className="text-cream hover:text-gold"
-            >
-              {CONTACT_PHONE}
             </a>
           </div>
         </div>
