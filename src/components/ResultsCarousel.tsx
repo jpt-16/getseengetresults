@@ -5,8 +5,9 @@ import Image from "next/image";
 import { RESULTS } from "@/lib/content";
 import { PhotoPlaceholder } from "./PhotoPlaceholder";
 
-export function ResultsCarousel() {
+export function ResultsCarousel({ limit }: { limit?: number } = {}) {
   const scrollerRef = useRef<HTMLDivElement>(null);
+  const results = limit ? RESULTS.slice(0, limit) : RESULTS;
 
   const scrollBy = (dir: 1 | -1) => {
     const el = scrollerRef.current;
@@ -41,7 +42,7 @@ export function ResultsCarousel() {
         className="gsgr-scroll mt-9 flex gap-6 overflow-x-auto px-5 pb-5 pt-1"
         style={{ scrollSnapType: "x mandatory" }}
       >
-        {RESULTS.map((result, i) => (
+        {results.map((result, i) => (
           <div
             key={`${result.name}-${i}`}
             className="w-[min(340px,82vw)] flex-none overflow-hidden rounded-xl border border-pine-700 bg-pine-800"

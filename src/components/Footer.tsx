@@ -1,11 +1,7 @@
 import Image from "next/image";
+import Link from "next/link";
 import { InstagramIcon } from "@/components/InstagramIcon";
-import {
-  APPLY_URL,
-  INSTAGRAM_URL,
-  INSTAGRAM_HANDLE,
-  CONTACT_EMAIL,
-} from "@/lib/content";
+import { INSTAGRAM_URL, INSTAGRAM_HANDLE, CONTACT_EMAIL } from "@/lib/content";
 
 export function Footer() {
   return (
@@ -20,7 +16,7 @@ export function Footer() {
             className="block rounded-xl border border-gold/30 object-cover"
           />
           <div className="mt-[18px] font-display text-[19px] leading-tight tracking-wide text-gold uppercase">
-            Get Noticed.
+            Get Seen.
             <br />
             Get Recruited.
           </div>
@@ -30,24 +26,24 @@ export function Footer() {
             Site
           </div>
           <div className="mt-4 flex flex-col gap-2.5 text-[16px]">
-            <a href="#services" className="text-cream hover:text-gold">
+            <Link href="/services" className="text-cream hover:text-gold">
               Services
-            </a>
-            <a href="#pricing" className="text-cream hover:text-gold">
+            </Link>
+            <Link href="/pricing" className="text-cream hover:text-gold">
               Pricing
-            </a>
-            <a href="#results" className="text-cream hover:text-gold">
+            </Link>
+            <Link href="/results" className="text-cream hover:text-gold">
               Results
-            </a>
-            <a href="#team" className="text-cream hover:text-gold">
+            </Link>
+            <Link href="/about" className="text-cream hover:text-gold">
               About
-            </a>
-            <a href="#areas" className="text-cream hover:text-gold">
+            </Link>
+            <Link href="/about#areas" className="text-cream hover:text-gold">
               Areas
-            </a>
-            <a href="#faq" className="text-cream hover:text-gold">
+            </Link>
+            <Link href="/services#faq" className="text-cream hover:text-gold">
               FAQ
-            </a>
+            </Link>
           </div>
         </div>
         <div>
@@ -55,14 +51,9 @@ export function Footer() {
             Get started
           </div>
           <div className="mt-4 flex flex-col gap-2.5 text-[16px]">
-            <a
-              href={APPLY_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-gold hover:text-gold-light"
-            >
+            <Link href="/apply" className="text-gold hover:text-gold-light">
               Apply / intake form
-            </a>
+            </Link>
             <a
               href={INSTAGRAM_URL}
               target="_blank"
