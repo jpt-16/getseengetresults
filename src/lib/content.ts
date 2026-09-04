@@ -112,6 +112,7 @@ export type ResultCard = {
   meta: string;
   quote?: string;
   placeholder?: boolean;
+  photo?: string;
 };
 
 export const RESULTS: ResultCard[] = [
@@ -129,11 +130,13 @@ export const RESULTS: ResultCard[] = [
     name: "Athlete Name",
     meta: "School / Position",
     placeholder: true,
+    photo: "/photos/knights-de-99.jpg",
   },
   {
     name: "Athlete Name",
     meta: "School / Position",
     placeholder: true,
+    photo: "/photos/methuen-lineman.jpg",
   },
 ];
 

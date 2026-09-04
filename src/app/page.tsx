@@ -1,5 +1,5 @@
+import Image from "next/image";
 import { Reveal } from "@/components/Reveal";
-import { PhotoPlaceholder } from "@/components/PhotoPlaceholder";
 import { ResultsCarousel } from "@/components/ResultsCarousel";
 import {
   APPLY_URL,
@@ -27,9 +27,13 @@ export default function Home() {
         }}
       >
         <div className="absolute inset-0" style={{ filter: "saturate(0.55) contrast(1.15)" }}>
-          <PhotoPlaceholder
-            label="gritty full-bleed training shot — turf, cones, sweat, night lights"
-            className="h-full w-full"
+          <Image
+            src="/photos/hero-night-action.jpg"
+            alt="Athlete breaking a tackle under the Friday night lights"
+            fill
+            priority
+            sizes="100vw"
+            className="object-cover"
           />
         </div>
         <div
@@ -241,9 +245,12 @@ export default function Home() {
             style={{ aspectRatio: "4 / 5", minHeight: 320 }}
           >
             <div style={{ filter: "saturate(0.6) contrast(1.1)" }} className="absolute inset-0">
-              <PhotoPlaceholder
-                label="coach and athlete mid-drill — hands-on, close, real"
-                className="h-full w-full"
+              <Image
+                src="/photos/drill-training-catch.jpg"
+                alt="Athletes competing for the ball at a GSGR training session"
+                fill
+                sizes="(min-width: 1024px) 50vw, 100vw"
+                className="object-cover"
               />
             </div>
             <div

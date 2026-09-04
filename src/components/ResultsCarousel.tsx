@@ -1,6 +1,7 @@
 "use client";
 
 import { useRef } from "react";
+import Image from "next/image";
 import { RESULTS } from "@/lib/content";
 import { PhotoPlaceholder } from "./PhotoPlaceholder";
 
@@ -50,14 +51,26 @@ export function ResultsCarousel() {
             }`}
             style={{ scrollSnapAlign: "center" }}
           >
-            <PhotoPlaceholder
-              label={
-                result.placeholder
-                  ? "next athlete — reel still"
-                  : `${result.name} — game or training clip still`
-              }
-              className="aspect-[16/10]"
-            />
+            {result.photo ? (
+              <div className="relative aspect-[16/10] overflow-hidden">
+                <Image
+                  src={result.photo}
+                  alt={`Action shot — ${result.meta}`}
+                  fill
+                  sizes="340px"
+                  className="object-cover"
+                />
+              </div>
+            ) : (
+              <PhotoPlaceholder
+                label={
+                  result.placeholder
+                    ? "next athlete — reel still"
+                    : `${result.name} — game or training clip still`
+                }
+                className="aspect-[16/10]"
+              />
+            )}
             <div className="px-6 pt-5 pb-6">
               <div
                 className={`font-display text-[26px] leading-none tracking-tight uppercase ${
