@@ -36,9 +36,6 @@ export function Footer() {
             <a href="#results" className="text-cream hover:text-gold">
               Results
             </a>
-            <a href="#pricing" className="text-cream hover:text-gold">
-              Pricing
-            </a>
             <a href="#team" className="text-cream hover:text-gold">
               About
             </a>

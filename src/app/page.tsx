@@ -9,13 +9,10 @@ import {
   PROOF_POINTS,
   PROBLEM_POINTS,
   SYSTEM_STEPS,
-  HOW_IT_WORKS_STEPS,
   SERVICE_CATEGORIES,
   FILM_EVAL_OFFER,
   FOUNDER,
   TEAM,
-  IN_PERSON_PACKAGES,
-  ONLINE_SERVICES,
   REFERRAL,
   TESTIMONIALS,
   SERVICE_AREAS,
@@ -110,6 +107,48 @@ export default function Home() {
         </div>
       </div>
 
+      {/* RESULTS */}
+      <div id="results" className="py-[clamp(56px,9vw,104px)]">
+        <div className="mx-auto max-w-6xl px-5">
+          <h2 className="font-display text-[clamp(34px,6vw,46px)] leading-[0.95] tracking-tight text-cream uppercase">
+            Athletes we&rsquo;ve helped
+          </h2>
+          <h3 className="mt-10 text-[13px] font-bold tracking-[0.16em] text-stone uppercase">
+            College commitments
+          </h3>
+        </div>
+        <div className="mt-6">
+          <ResultsCarousel />
+        </div>
+        <div className="mx-auto mt-14 max-w-6xl px-5">
+          <h3 className="text-[13px] font-bold tracking-[0.16em] text-stone uppercase">
+            In their words
+          </h3>
+          <div className="mt-6 grid grid-cols-[repeat(auto-fit,minmax(280px,1fr))] gap-6">
+            {TESTIMONIALS.map((t, i) => (
+              <Reveal
+                key={i}
+                delayMs={i * 70}
+                className="rounded-xl border border-pine-700 bg-pine-800 px-7 pt-[30px] pb-8"
+              >
+                <div className="text-[15px] tracking-[0.08em] text-gold" aria-hidden>
+                  {"★".repeat(t.rating)}
+                </div>
+                <p className="mt-4 text-[15px] leading-relaxed text-cream/85">
+                  {t.quote}
+                </p>
+                <div className="mt-[22px] text-[16px] font-bold text-cream">
+                  {t.name}
+                </div>
+                <div className="mt-1 text-[13px] tracking-[0.1em] text-stone uppercase">
+                  {t.role}
+                </div>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </div>
+
       {/* PROBLEM */}
       <div className="px-5 py-[clamp(56px,9vw,104px)]">
         <div className="mx-auto grid max-w-6xl grid-cols-[repeat(auto-fit,minmax(320px,1fr))] gap-[clamp(28px,5vw,56px)]">
@@ -168,48 +207,6 @@ export default function Home() {
         </div>
       </div>
 
-      {/* RESULTS */}
-      <div id="results" className="py-[clamp(56px,9vw,104px)]">
-        <div className="mx-auto max-w-6xl px-5">
-          <h2 className="font-display text-[clamp(34px,6vw,46px)] leading-[0.95] tracking-tight text-cream uppercase">
-            Athletes we&rsquo;ve helped
-          </h2>
-          <h3 className="mt-10 text-[13px] font-bold tracking-[0.16em] text-stone uppercase">
-            College commitments
-          </h3>
-        </div>
-        <div className="mt-6">
-          <ResultsCarousel />
-        </div>
-        <div className="mx-auto mt-14 max-w-6xl px-5">
-          <h3 className="text-[13px] font-bold tracking-[0.16em] text-stone uppercase">
-            In their words
-          </h3>
-          <div className="mt-6 grid grid-cols-[repeat(auto-fit,minmax(280px,1fr))] gap-6">
-            {TESTIMONIALS.map((t, i) => (
-              <Reveal
-                key={i}
-                delayMs={i * 70}
-                className="rounded-xl border border-pine-700 bg-pine-800 px-7 pt-[30px] pb-8"
-              >
-                <div className="text-[15px] tracking-[0.08em] text-gold" aria-hidden>
-                  {"★".repeat(t.rating)}
-                </div>
-                <p className="mt-4 text-[15px] leading-relaxed text-cream/85">
-                  {t.quote}
-                </p>
-                <div className="mt-[22px] text-[16px] font-bold text-cream">
-                  {t.name}
-                </div>
-                <div className="mt-1 text-[13px] tracking-[0.1em] text-stone uppercase">
-                  {t.role}
-                </div>
-              </Reveal>
-            ))}
-          </div>
-        </div>
-      </div>
-
       {/* SERVICES */}
       <div
         id="services"
@@ -219,6 +216,11 @@ export default function Home() {
           <h2 className="max-w-2xl font-display text-[clamp(34px,6vw,46px)] leading-[0.95] tracking-tight text-cream uppercase">
             Train. Get seen. Get recruited.
           </h2>
+          <p className="mt-5 max-w-[620px] text-[16px] leading-relaxed text-cream/80">
+            All ages, all levels, all positions. In-person training runs on
+            turf in Massachusetts; film evaluation and recruiting support
+            work from anywhere.
+          </p>
           <div className="mt-12 grid grid-cols-[repeat(auto-fit,minmax(280px,1fr))] gap-x-10 gap-y-12">
             {SERVICE_CATEGORIES.map((category, i) => (
               <Reveal key={category.label} delayMs={i * 90}>
@@ -231,9 +233,16 @@ export default function Home() {
                       key={item.title}
                       className="border-t border-pine-700 pt-4"
                     >
-                      <h4 className="font-display text-lg tracking-tight text-cream uppercase">
-                        {item.title}
-                      </h4>
+                      <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
+                        <h4 className="font-display text-lg tracking-tight text-cream uppercase">
+                          {item.title}
+                        </h4>
+                        {item.price && (
+                          <span className="font-display text-lg text-gold">
+                            {item.price}
+                          </span>
+                        )}
+                      </div>
                       <p className="mt-2 text-[15px] leading-relaxed text-cream/78">
                         {item.body}
                       </p>
@@ -267,7 +276,7 @@ export default function Home() {
                     rel="noopener noreferrer"
                     className="rounded-lg bg-gold px-6 py-3 font-display text-[16px] tracking-[0.06em] text-ink uppercase transition-[transform,filter] duration-150 ease-out hover:scale-[1.03] hover:brightness-110 active:scale-[0.97]"
                   >
-                    Send Your Film
+                    Apply Now
                   </a>
                 </div>
               </div>
@@ -286,73 +295,6 @@ export default function Home() {
               </ul>
             </div>
           </Reveal>
-
-          <a
-            href="#pricing"
-            className="mt-10 inline-flex items-center gap-2 font-display text-lg tracking-[0.04em] text-gold uppercase transition-colors hover:text-gold-light"
-          >
-            See full pricing ↓
-          </a>
-        </div>
-      </div>
-
-      {/* PRICING */}
-      <div id="pricing" className="px-5 py-[clamp(56px,9vw,104px)]">
-        <div className="mx-auto max-w-6xl">
-          <h2 className="font-display text-[clamp(34px,6vw,46px)] leading-[0.95] tracking-tight text-cream uppercase">
-            Every way to work with us
-          </h2>
-          <p className="mt-5 max-w-[620px] text-[clamp(16px,2vw,18px)] leading-relaxed text-cream/85">
-            All ages, all levels, all positions. In-person training runs on
-            turf in Massachusetts; film evaluation and recruiting support
-            work from anywhere.
-          </p>
-
-          <h3 className="mt-11 text-[13px] font-bold tracking-[0.16em] text-stone uppercase">
-            In-person training — all ages, levels, positions
-          </h3>
-          <div className="mt-5 grid grid-cols-[repeat(auto-fit,minmax(250px,1fr))] gap-6">
-            {IN_PERSON_PACKAGES.map((item, i) => (
-              <Reveal
-                key={item.title}
-                delayMs={i * 60}
-                className="rounded-xl border border-pine-700 bg-pine-800 px-[26px] pt-7 pb-[30px]"
-              >
-                <div className="font-display text-[34px] leading-none text-gold">
-                  {item.price}
-                </div>
-                <h4 className="mt-3.5 mb-2.5 font-display text-xl leading-tight tracking-tight text-cream uppercase">
-                  {item.title}
-                </h4>
-                <p className="text-[15px] leading-relaxed text-cream/82">
-                  {item.body}
-                </p>
-              </Reveal>
-            ))}
-          </div>
-
-          <h3 className="mt-12 text-[13px] font-bold tracking-[0.16em] text-stone uppercase">
-            Online & recruiting services
-          </h3>
-          <div className="mt-5 grid grid-cols-[repeat(auto-fit,minmax(250px,1fr))] gap-6">
-            {ONLINE_SERVICES.map((item, i) => (
-              <Reveal
-                key={item.title}
-                delayMs={i * 50}
-                className="rounded-xl border border-pine-700 bg-pine-800 px-[26px] pt-7 pb-[30px]"
-              >
-                <div className="font-display text-[34px] leading-none text-gold">
-                  {item.price}
-                </div>
-                <h4 className="mt-3.5 mb-2.5 font-display text-xl leading-tight tracking-tight text-cream uppercase">
-                  {item.title}
-                </h4>
-                <p className="text-[15px] leading-relaxed text-cream/82">
-                  {item.body}
-                </p>
-              </Reveal>
-            ))}
-          </div>
         </div>
       </div>
 
@@ -471,34 +413,6 @@ export default function Home() {
             <InstagramIcon className="h-6 w-6 flex-none" />
             {INSTAGRAM_HANDLE}
           </a>
-        </div>
-      </div>
-
-      {/* HOW IT WORKS */}
-      <div className="px-5 py-[clamp(56px,9vw,104px)]">
-        <div className="mx-auto max-w-6xl">
-          <h2 className="font-display text-[clamp(34px,6vw,46px)] leading-[0.95] tracking-tight text-cream uppercase">
-            How it works
-          </h2>
-          <div className="mt-11 grid grid-cols-[repeat(auto-fit,minmax(220px,1fr))] gap-x-8 gap-y-9">
-            {HOW_IT_WORKS_STEPS.map((item, i) => (
-              <Reveal
-                key={item.step}
-                delayMs={i * 70}
-                className="border-t border-pine-700 pt-6"
-              >
-                <div className="font-display text-[36px] leading-none text-gold">
-                  {item.step}
-                </div>
-                <h3 className="mt-3 font-display text-xl tracking-tight text-cream uppercase">
-                  {item.title}
-                </h3>
-                <p className="mt-2.5 text-[15px] leading-relaxed text-cream/80">
-                  {item.body}
-                </p>
-              </Reveal>
-            ))}
-          </div>
         </div>
       </div>
 
