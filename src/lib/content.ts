@@ -29,7 +29,7 @@ export const SERVICES = [
 
 export const FOUNDER = {
   name: "Caden Chase",
-  title: "D1 RB & Wrestler, Davidson College",
+  title: "D1 RB, Davidson College",
 };
 
 export type TeamMember = {
@@ -44,7 +44,7 @@ export const TEAM: TeamMember[] = [
     name: "Caden Chase",
     role: "Founder — Davidson College",
     description:
-      "D1 running back and wrestler at Davidson College. All-State wrestling champion with 200+ career wins, First Team All-Conference, and an Eagle Tribune / Boston Globe / Boston Herald All-Star who held 17 total offers, including multiple D1s.",
+      "D1 running back at Davidson College. All-State wrestling champion in high school with 200+ career wins, First Team All-Conference, and an Eagle Tribune / Boston Globe / Boston Herald All-Star who held 17 total offers, including multiple D1s.",
     photo: "/photos/hero-night-action.jpg",
   },
   {
